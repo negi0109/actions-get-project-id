@@ -60,6 +60,7 @@ runs:
           } catch (error) {
             if (error.data) {
               result = error.data;
+              core.setOutput('error', error.errors.map(v=>v.message).join(","));
             }
           }
 
@@ -71,5 +72,4 @@ runs:
             core.setOutput('project-id', result.organization.projectV2.id);
             return;
           }
-          core.setOutput('error', 'Project does not found.');
           return;
