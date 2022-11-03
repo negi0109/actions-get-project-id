@@ -60,8 +60,8 @@ runs:
           } catch (error) {
             if (error.data) {
               result = error.data;
-              core.setOutput('error', error.errors.map(v=>v.message).join(","));
             }
+            core.setOutput('error', error.errors.map(v=>v.message).join(","));
           }
 
           if (result.user && result.user.projectV2) {
